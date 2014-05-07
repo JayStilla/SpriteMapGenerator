@@ -27,41 +27,55 @@ namespace SpriteMapGenerator
                 dc.DrawImage(background, new Rect(0, 0, background.PixelWidth, background.PixelHeight));
             }
         }
+
+
         public void GenSheet(string[] images)
         {
             BitmapFrame[] frames = new BitmapFrame[images.Length];
-            int[] imageWidth = new int[images.Length];
-            int[] imageHeight = new int[images.Length];
+            //int[] imageWidth = new int[images.Length];
+            //int[] imageHeight = new int[images.Length];
 
-            int iW = images.Length;
-            int iH = images.Length; 
+            // Atlas Dimensions
+            int iW = 0;
+            int iH = 0; 
 
             // Loads the images to tile (no need to specify PngBitmapDecoder, the correct decoder is automatically selected)
             for (int i = 0; i < images.Length; i++)
             {
                frames[i] = BitmapDecoder.Create(new Uri(images[i]), BitmapCreateOptions.None, BitmapCacheOption.OnLoad).Frames.First();
-               imageWidth[i] = frames[i].PixelWidth;
-               imageHeight[i] = frames[i].PixelHeight; 
+               //imageWidth[i] = frames[i].PixelWidth;
+               //imageHeight[i] = frames[i].PixelHeight; 
             }
-            // Gets the size of the images (I assume each image has the same size)
-            for (int i = 0; i < images.Length; i++)
+            //Make it so that the two biggest heights and widths depict size
+            //iW = imageWidth[0] + imageWidth[1];
+            //iH = imageHeight[0] + imageHeight[2];
+            for(int i = 0; i<frames.Length; i++)
             {
                 iW += frames[i].PixelWidth;
-                iH += frames[i].PixelHeight;
             }
+            for(int i = 1; i<frames.Length; i++)
+            {
+                iH = frames[i - 1].PixelHeight;
+            }
+            
 
             // Draws the images into a DrawingVisual component
             DrawingVisual drawingVisual = new DrawingVisual();
             using (DrawingContext drawingContext = drawingVisual.RenderOpen())
             {
-                drawingContext.DrawImage(frames[0], new Rect(0, 0, imageWidth[0], imageHeight[0]));
-                drawingContext.DrawImage(frames[1], new Rect(imageWidth[1], 0, imageWidth[1], imageHeight[1]));
-                drawingContext.DrawImage(frames[2], new Rect(0, imageHeight[2], imageWidth[2], imageHeight[2]));
-                drawingContext.DrawImage(frames[3], new Rect(imageWidth[3], imageHeight[3], imageWidth[3], imageHeight[3]));
+                int prevFrames = 0;
+                for (int i = 0; i < frames.Length; i++)
+                {
+                    drawingContext.DrawImage(frames[i], new Rect(prevFrames, 0, frames[i].PixelWidth, frames[i].PixelHeight));
+                    prevFrames += frames[i].PixelWidth;
+
+                }
             }
 
+            
+
             // Converts the Visual (DrawingVisual) into a BitmapSource
-            RenderTargetBitmap bmp = new RenderTargetBitmap(iW * 2, iH * 2, 96, 96, PixelFormats.Pbgra32);
+            RenderTargetBitmap bmp = new RenderTargetBitmap(iW, iH, 96, 96, PixelFormats.Pbgra32);
             bmp.Render(drawingVisual);
 
             // Creates a PngBitmapEncoder and adds the BitmapSource to the frames of the encoder
