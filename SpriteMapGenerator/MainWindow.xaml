@@ -1,0 +1,15 @@
+﻿<Window x:Class="SpriteMapGenerator.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:local="clr-namespace:SpriteMapGenerator"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Menu Height="23" HorizontalAlignment="Stretch" Margin="12,12,0,0" Name="menu1" VerticalAlignment="Top" >
+            <MenuItem Header="_File">
+                <MenuItem Header="_Open" Click="MenuItemOpen_Click"></MenuItem>
+                <MenuItem Header="_Save" Command="Save" InputGestureText="Ctrl+s"></MenuItem>
+            </MenuItem>
+        </Menu>
+        <local:MyCanvas Height="258" HorizontalAlignment="Left" Margin="12,41,0,0" x:Name="canvas1" VerticalAlignment="Top" Width="479" ></local:MyCanvas>
+    </Grid>
+</Window>
