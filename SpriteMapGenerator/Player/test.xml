@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<TextureAtlas imagePath="Naw">
+  <SubTexture name="C:\Users\Student\Documents\Visual Studio 2010\Projects\SpriteMapGenerator\Player\Player_Right3.png" x="0" y="0" width="16" height="31" />
+  <SubTexture name="C:\Users\Student\Documents\Visual Studio 2010\Projects\SpriteMapGenerator\Player\Player_Right2.png" x="16" y="0" width="17" height="31" />
+  <SubTexture name="C:\Users\Student\Documents\Visual Studio 2010\Projects\SpriteMapGenerator\Player\Player_Right1.png" x="33" y="0" width="16" height="31" />
+  <SubTexture name="C:\Users\Student\Documents\Visual Studio 2010\Projects\SpriteMapGenerator\Player\Player_Left3.png" x="49" y="0" width="16" height="31" />
+  <SubTexture name="C:\Users\Student\Documents\Visual Studio 2010\Projects\SpriteMapGenerator\Player\Player_Left2.png" x="65" y="0" width="17" height="31" />
+  <SubTexture name="C:\Users\Student\Documents\Visual Studio 2010\Projects\SpriteMapGenerator\Player\Player_Left1.png" x="82" y="0" width="16" height="31" />
+  <SubTexture name="C:\Users\Student\Documents\Visual Studio 2010\Projects\SpriteMapGenerator\Player\Player_Front3.png" x="98" y="0" width="22" height="29" />
+  <SubTexture name="C:\Users\Student\Documents\Visual Studio 2010\Projects\SpriteMapGenerator\Player\Player_Front2.png" x="120" y="0" width="22" height="29" />
+  <SubTexture name="C:\Users\Student\Documents\Visual Studio 2010\Projects\SpriteMapGenerator\Player\Player_Front1.png" x="142" y="0" width="22" height="30" />
+  <SubTexture name="C:\Users\Student\Documents\Visual Studio 2010\Projects\SpriteMapGenerator\Player\Player_Back3.png" x="164" y="0" width="22" height="29" />
+  <SubTexture name="C:\Users\Student\Documents\Visual Studio 2010\Projects\SpriteMapGenerator\Player\Player_Back2.png" x="186" y="0" width="22" height="29" />
+  <SubTexture name="C:\Users\Student\Documents\Visual Studio 2010\Projects\SpriteMapGenerator\Player\Player_Back1.png" x="208" y="0" width="22" height="30" />
+</TextureAtlas>
